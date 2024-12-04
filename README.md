@@ -51,9 +51,10 @@
 <img align="right" height="150" src="https://cdn.discordapp.com/attachments/1038466655656890469/1313978976317739009/standard.gif?ex=675219c8&is=6750c848&hm=b7bb0660e658452cdc5351b49875b42f61c18d9adc56cfb3587e879dc4b4b439&"  />
 
 ###
-
-<br clear="both">
-
-<img src="https://raw.githubusercontent.com/Thebestharrison1221 /Thebestharrison1221 /output/snake.svg" alt="Snake animation" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thebestharrison1221/Thebestharrison1221/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Thebestharrison1221/Thebestharrison1221/output/snake.svg" />
+  <img alt="github-snake" src="https://raw.githubusercontent.com/Thebestharrison1221/Thebestharrison1221/output/github-snake.svg" />
+</picture>
 
 ###
