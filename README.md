@@ -22,10 +22,8 @@ MC Developer
 [![](https://visitcount.itsvg.in/api?id=Thebestharrison1221&icon=10&color=1)](https://visitcount.itsvg.in)
 
 
-<br clear="both">
-
-<div align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=Thebestharrison1221 &hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph"  />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Thebestharrison1221 &locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph"  />
-</div>
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thebestharrison1221/Thebestharrison1221/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Thebestharrison1221/Thebestharrison1221/output/github-snake.svg" />
+  <img alt="github-snake" src="https://raw.githubusercontent.com/Thebestharrison1221/Thebestharrison1221/output/github-snake.svg" />
+</picture>
