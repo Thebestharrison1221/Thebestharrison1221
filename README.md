@@ -1,6 +1,6 @@
 # 💫 About Me: 
 [![](https://visitcount.itsvg.in/api?id=Thebestharrison1221&icon=10&color=1)](https://visitcount.itsvg.in)
-[![visitors](https://visitor-badge.laobi.icu/badge?page_id=Thebestharrison1221.Thebestharrison1221)
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=Thebestharrison1221.Thebestharrison1221)
 
 
 # 💻 Tech Stack:
