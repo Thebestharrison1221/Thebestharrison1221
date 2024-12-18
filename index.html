@@ -22,18 +22,18 @@
             background-image: url('hero-background.jpg'); /* Replace with your image path */
             background-size: 100% 100%; /* Stretch background */
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Fixed background */
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Title at top, icons at bottom */
+            justify-content: space-between; /* Align title at top and icons at bottom */
             align-items: center;
         }
 
         /* Title Styling */
         .title {
-            font-size: 6vw; /* Scales title relative to viewport width */
+            font-size: 6vw;
             font-weight: bold;
-            margin-top: 2vh; /* Slight margin from top */
+            margin-top: 2vh;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
@@ -42,28 +42,40 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 2vw; /* Scales gap based on viewport width */
-            width: 80vw; /* Scales container width */
-            height: 50vh; /* Scales container height */
+            gap: 2vw;
+            width: 80vw;
+            height: 50vh;
         }
 
         .grid-item {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 1vw; /* Scales border radius */
+            border-radius: 1vw;
             box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Ensures video respects rounded corners */
+        }
+
+        /* Embedded YouTube Video */
+        .grid-item iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 1vw; /* Rounded corners for the video */
         }
 
         /* Social Links - Fixed to Bottom */
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 3vw; /* Spacing between icons scales with viewport width */
-            margin-bottom: 2vh; /* Slight margin from bottom */
+            gap: 3vw;
+            margin-bottom: 2vh;
         }
 
         .social-links img {
-            width: 5vw; /* Icon width scales with viewport */
-            height: 5vw; /* Icon height scales with viewport */
+            width: 4vw; /* Icons made smaller */
+            height: 4vw;
             transition: transform 0.3s ease;
         }
 
@@ -78,7 +90,15 @@
 
     <!-- Grid Placeholders -->
     <div class="grid-container">
-        <div class="grid-item"></div>
+        <!-- Top-Left Square with Embedded YouTube Video -->
+        <div class="grid-item">
+            <iframe 
+                src="https://www.youtube.com/embed?listType=user_uploads&list=Thebestharrison1221" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <!-- Other Empty Squares -->
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
