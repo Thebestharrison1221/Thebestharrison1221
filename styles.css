@@ -1,4 +1,4 @@
-/* General resets */
+/* General Resets */
 * {
     margin: 0;
     padding: 0;
@@ -7,121 +7,157 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    color: #000;
+    line-height: 1.6;
+    color: #333;
 }
 
-/* Fade-in Animation */
-.fade-in {
-    opacity: 0;
-    animation: fadeIn ease-in 1s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-/* Header */
+/* Header Section */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px;
-    background-color: #fff;
+    padding: 15px 30px;
+    background: #333;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo {
-    font-weight: bold;
+header .logo {
     font-size: 1.5rem;
+    font-weight: bold;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-}
-
-nav a {
+header nav a {
     text-decoration: none;
-    margin-right: 20px;
-    color: #000;
-    font-size: 1rem;
+    color: #fff;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.contact-button {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 8px;
-    cursor: pointer;
+header nav a:hover {
+    color: #00bcd4;
 }
 
 /* Hero Section */
 .hero {
-    position: relative;
-    background: url('hero-background.jpg') center/cover;
-    height: 400px;
+    background: url('hero-background.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: #fff;
+    align-items: center;
     text-align: center;
+    background-color: #333;
 }
 
-.hero h1 {
+.hero-content h1 {
     font-size: 3rem;
-    color: #009dff;
+    margin-bottom: 10px;
 }
 
-.hero h1 span {
-    color: #fff;
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-content span {
+    color: #00bcd4;
     font-weight: bold;
 }
 
-.cta {
-    margin-top: 15px;
-    background-color: #009dff;
+.cta-button {
+    text-decoration: none;
+    background-color: #00bcd4;
     color: #fff;
-    border: none;
     padding: 10px 20px;
-    font-size: 1rem;
     border-radius: 5px;
-    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Social Links */
-.social-links {
-    padding: 30px;
-    background-color: #0063e0;
-    color: #fff;
+.cta-button:hover {
+    background-color: #0097a7;
+}
+
+/* About Section */
+.about {
+    padding: 50px 30px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Projects Section */
+.projects {
+    padding: 50px 30px;
     text-align: center;
 }
 
-.social-links ul {
-    list-style: none;
+.projects h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.project-container {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.social-links li {
-    margin-right: 20px;
+.project {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.social-links a {
+.project:hover {
+    transform: translateY(-5px);
+}
+
+/* Contact Section */
+.contact {
+    padding: 50px 30px;
+    text-align: center;
+    background-color: #333;
     color: #fff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
 }
 
-.social-links img {
-    width: 20px;
-    margin-right: 5px;
+.contact h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.contact-button {
+    text-decoration: none;
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #0097a7;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #222;
+    color: #fff;
+    font-size: 0.9rem;
 }
