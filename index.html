@@ -15,6 +15,7 @@
         html, body {
             height: 100%;
             width: 100%;
+            overflow: hidden; /* Prevents scrolling */
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
@@ -22,13 +23,17 @@
             background-size: 100% 100%; /* Stretch background */
             background-repeat: no-repeat;
             background-attachment: fixed; /* Fixed background */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Title at top, icons at bottom */
+            align-items: center;
         }
 
         /* Title Styling */
         .title {
             font-size: 6vw; /* Scales title relative to viewport width */
             font-weight: bold;
-            margin: 2vh 0; /* Scales margin relative to viewport height */
+            margin-top: 2vh; /* Slight margin from top */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
@@ -40,7 +45,6 @@
             gap: 2vw; /* Scales gap based on viewport width */
             width: 80vw; /* Scales container width */
             height: 50vh; /* Scales container height */
-            margin: 5vh auto; /* Centers grid with scaling margins */
         }
 
         .grid-item {
@@ -49,12 +53,12 @@
             box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.3);
         }
 
-        /* Social Links */
+        /* Social Links - Fixed to Bottom */
         .social-links {
             display: flex;
             justify-content: center;
             gap: 3vw; /* Spacing between icons scales with viewport width */
-            margin: 3vh 0; /* Scaling margin */
+            margin-bottom: 2vh; /* Slight margin from bottom */
         }
 
         .social-links img {
@@ -80,7 +84,7 @@
         <div class="grid-item"></div>
     </div>
 
-    <!-- Social Links -->
+    <!-- Social Links at Bottom -->
     <div class="social-links">
         <a href="http://www.twitch.tv/thebestharrison1221" target="_blank">
             <img src="twitch.png" alt="Twitch"> <!-- Replace with Twitch logo -->
