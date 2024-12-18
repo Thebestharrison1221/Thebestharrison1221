@@ -3,68 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic GitHub & YouTube Embed</title>
+    <title>TheBestHarrison Layout</title>
     <style>
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body, html {
+        html, body {
             height: 100%;
-            overflow: hidden; /* Prevent scrolling */
-            background: url('hero-background.jpg') no-repeat center center fixed;
-            background-size: cover;
+            width: 100%;
+            overflow: hidden; /* Prevents scrolling */
             font-family: Arial, sans-serif;
             color: white;
+            text-align: center;
+            background-image: url('hero-background.jpg'); /* Replace with your image path */
+            background-size: 100% 100%; /* Stretch background */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Align title at top and icons at bottom */
+            align-items: center;
         }
 
+        /* Title Styling */
+        .title {
+            font-size: 6vw;
+            font-weight: bold;
+            margin-top: 2vh;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Grid Container */
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 20px;
-            height: 90%;
-            padding: 20px;
+            gap: 2vw;
+            width: 80vw;
+            height: 50vh;
         }
 
         .grid-item {
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1vw;
+            box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Ensures content respects rounded corners */
+            text-align: center;
+            padding: 1vw;
+        }
+
+        /* Embedded YouTube Video */
+        .grid-item iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 1vw; /* Rounded corners for the video */
+        }
+
+        /* GitHub Repo Styling */
+        #github-repo {
+            color: white;
+            font-size: 1.2vw;
+            line-height: 1.5;
+        }
+
+        #github-repo a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #github-repo a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Links - Fixed to Bottom */
+        .social-links {
             display: flex;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
+            gap: 3vw;
+            margin-bottom: 2vh;
         }
 
-        iframe {
-            width: 90%;
-            height: 90%;
-            border-radius: 20px;
-            border: none;
+        .social-links img {
+            width: 4vw; /* Icons made smaller */
+            height: 4vw;
+            transition: transform 0.3s ease;
         }
 
-        /* Bottom icons */
-        .bottom-icons {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-        }
-
-        .bottom-icons a img {
-            width: 40px; /* Smaller icons */
-            height: 40px;
+        .social-links img:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
+    <!-- Title -->
+    <div class="title">THEBESTHARRISON</div>
+
+    <!-- Grid Placeholders -->
     <div class="grid-container">
-        <!-- Top-Left Square: YouTube Video -->
+        <!-- Top-Left Square with Embedded YouTube Video -->
         <div class="grid-item">
             <iframe 
                 src="https://www.youtube.com/embed?listType=playlist&list=PLy2Jz8RwRSBEjJebi1g6nEejdXwbPaRzD" 
@@ -73,20 +118,17 @@
             </iframe>
         </div>
 
-        <!-- Top-Right Square: Latest GitHub Repo -->
+        <!-- Top-Right Square with Latest GitHub Project -->
         <div class="grid-item" id="github-repo">
-            <h2>Latest GitHub Project</h2>
-            <p>Loading...</p>
+            <p>Loading latest project...</p>
         </div>
 
-        <!-- Bottom-Left Square -->
+        <!-- Bottom-Left and Bottom-Right Squares -->
         <div class="grid-item"></div>
-
-        <!-- Bottom-Right Square -->
         <div class="grid-item"></div>
     </div>
 
-    <!-- Bottom Social Icons -->
+    <!-- Social Links at Bottom -->
     <div class="social-links">
         <a href="http://www.twitch.tv/thebestharrison1221" target="_blank">
             <img src="twitch.png" alt="Twitch"> <!-- Replace with Twitch logo -->
@@ -113,9 +155,7 @@
                     container.innerHTML = `
                         <h2>${repo.name}</h2>
                         <p>${repo.description || "No description available."}</p>
-                        <a href="${repo.html_url}" target="_blank" style="color: white; text-decoration: none; font-weight: bold;">
-                            View on GitHub
-                        </a>
+                        <a href="${repo.html_url}" target="_blank">View on GitHub</a>
                     `;
                 } else {
                     document.getElementById('github-repo').innerHTML = "<p>No repositories found.</p>";
