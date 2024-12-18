@@ -25,7 +25,7 @@
             background-attachment: fixed;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Align title at top and icons at bottom */
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -54,7 +54,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Ensures content respects rounded corners */
+            overflow: hidden;
             text-align: center;
             padding: 1vw;
         }
@@ -64,27 +64,52 @@
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 1vw; /* Rounded corners for the video */
+            border-radius: 1vw;
         }
 
         /* GitHub Repo Styling */
         #github-repo {
             color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 1vw;
+            padding: 1.5vw;
+            text-align: left;
+            box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.3);
+            width: 90%;
+            height: 90%;
+        }
+
+        #github-repo h2 {
+            font-size: 1.8vw;
+            margin-bottom: 0.5vw;
+            color: #58a6ff;
+        }
+
+        #github-repo p {
             font-size: 1.2vw;
+            margin-bottom: 1vw;
             line-height: 1.5;
+            color: #e1e1e1;
         }
 
         #github-repo a {
-            color: #58a6ff;
+            display: inline-block;
             text-decoration: none;
+            color: #ffffff;
+            background: #58a6ff;
+            padding: 0.5vw 1vw;
+            border-radius: 0.5vw;
             font-weight: bold;
+            font-size: 1.1vw;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         #github-repo a:hover {
-            text-decoration: underline;
+            background: #1f6feb;
+            transform: scale(1.05);
         }
 
-        /* Social Links - Fixed to Bottom */
+        /* Social Links */
         .social-links {
             display: flex;
             justify-content: center;
@@ -93,8 +118,8 @@
         }
 
         .social-links img {
-            width: 4vw; /* Icons made smaller */
-            height: 4vw;
+            width: 3.5vw;
+            height: 3.5vw;
             transition: transform 0.3s ease;
         }
 
@@ -128,7 +153,7 @@
         <div class="grid-item"></div>
     </div>
 
-    <!-- Social Links at Bottom -->
+    <!-- Social Links -->
     <div class="social-links">
         <a href="http://www.twitch.tv/thebestharrison1221" target="_blank">
             <img src="twitch.png" alt="Twitch"> <!-- Replace with Twitch logo -->
@@ -155,7 +180,7 @@
                     container.innerHTML = `
                         <h2>${repo.name}</h2>
                         <p>${repo.description || "No description available."}</p>
-                        <a href="${repo.html_url}" target="_blank">View on GitHub</a>
+                        <a href="${repo.html_url}" target="_blank">View Project</a>
                     `;
                 } else {
                     document.getElementById('github-repo').innerHTML = "<p>No repositories found.</p>";
