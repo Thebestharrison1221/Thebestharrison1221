@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TheBestHarrison official site featuring latest GitHub projects, YouTube playlist, and social links.">
+    <meta name="keywords" content="GitHub, YouTube, Twitch, Portfolio">
     <title>TheBestHarrison Layout</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         /* General Reset */
         * {
@@ -15,14 +18,15 @@
         html, body {
             height: 100%;
             width: 100%;
-            overflow: hidden; /* Prevents scrolling */
+            overflow: hidden;
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
-            background-image: url('hero-background.jpg'); /* Replace with your image path */
-            background-size: 100% 100%; /* Stretch background */
+            background-image: url('hero-background.jpg');
+            background-size: 100% 100%;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-color: #1e1e1e; /* Fallback color */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -77,9 +81,6 @@
             box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.3);
             width: 90%;
             height: 90%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Ensures proper spacing between content */
         }
 
         #github-repo h3 {
@@ -93,13 +94,6 @@
             font-size: 1.8vw;
             margin-bottom: 0.5vw;
             color: #e1e1e1;
-        }
-
-        #github-repo p {
-            font-size: 1.2vw;
-            line-height: 1.5;
-            color: #bdbdbd;
-            margin: 1vw 0;
         }
 
         #github-repo a {
@@ -136,6 +130,20 @@
         .social-links img:hover {
             transform: scale(1.1);
         }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
+                gap: 5vw;
+            }
+
+            .social-links img {
+                width: 5vw;
+                height: 5vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -158,7 +166,6 @@
             <h3>Most Recent Repo:</h3>
             <h2>Loading...</h2>
             <p>Please wait while we fetch your latest repository.</p>
-            <a href="#" target="_blank" style="display: none;">View Project</a>
         </div>
 
         <!-- Bottom-Left and Bottom-Right Squares -->
@@ -169,13 +176,13 @@
     <!-- Social Links -->
     <div class="social-links">
         <a href="http://www.twitch.tv/thebestharrison1221" target="_blank">
-            <img src="twitch.png" alt="Twitch"> <!-- Replace with Twitch logo -->
+            <img src="twitch.png" alt="Twitch Logo" loading="lazy">
         </a>
         <a href="http://www.youtube.com/@thebestharrison1221" target="_blank">
-            <img src="youtube.png" alt="YouTube"> <!-- Replace with YouTube logo -->
+            <img src="youtube.png" alt="YouTube Logo" loading="lazy">
         </a>
         <a href="https://github.com/Thebestharrison1221" target="_blank">
-            <img src="github.png" alt="GitHub"> <!-- Replace with GitHub logo -->
+            <img src="github.png" alt="GitHub Logo" loading="lazy">
         </a>
     </div>
 
@@ -185,12 +192,12 @@
             const username = "Thebestharrison1221"; // Replace with your GitHub username
             try {
                 const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=1`);
+                if (!response.ok) throw new Error("Failed to fetch repositories.");
                 const data = await response.json();
 
                 if (data.length > 0) {
                     const repo = data[0];
-                    const container = document.getElementById('github-repo');
-                    container.innerHTML = `
+                    document.getElementById('github-repo').innerHTML = `
                         <h3>Most Recent Repo:</h3>
                         <h2>${repo.name}</h2>
                         <a href="${repo.html_url}" target="_blank">View Project</a>
