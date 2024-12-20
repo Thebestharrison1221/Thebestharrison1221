@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TheBestHarrison official site featuring latest GitHub projects, YouTube playlist, and social links.">
+    <meta name="keywords" content="GitHub, YouTube, Twitch, Portfolio">
     <title>TheBestHarrison Layout</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         /* General Reset */
         * {
@@ -23,6 +26,7 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-color: #1e1e1e; /* Fallback color */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -45,14 +49,6 @@
             gap: 2vw;
             width: 80vw;
             height: 50vh;
-            transition: all 0.8s ease; /* Smoother animation */
-        }
-
-        .grid-container.expanded {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr;
-            opacity: 0;
-            transform: scale(0.8);
         }
 
         .grid-item {
@@ -65,87 +61,55 @@
             justify-content: center;
             text-align: center;
             padding: 1vw;
-            position: relative;
-            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .hidden {
-            opacity: 0;
-            transform: scale(0.8);
-        }
-
-        /* Button Placement */
-        .mc-btn {
-            background: #58a6ff;
-            color: white;
-            padding: 0.8vw 1.5vw;
+        /* Embedded YouTube Video */
+        .grid-item iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            border-radius: 0.5vw;
-            font-size: 1.2vw;
-            cursor: pointer;
-            position: absolute;
-            bottom: 1vw; /* Places it at the bottom */
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .mc-btn:hover {
-            background: #1f6feb;
-            transform: scale(1.05);
-        }
-
-        /* Minecraft Projects Expanded View */
-        #mc-projects {
-            display: none;
-            background: rgba(0, 0, 0, 0.9);
             border-radius: 1vw;
+        }
+
+        /* GitHub Repo Styling */
+        #github-repo {
             color: white;
-            padding: 2vw;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 1vw;
+            padding: 1.5vw;
             text-align: center;
-            width: 80vw;
-            height: 50vh;
-            overflow-y: auto;
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.3);
+            width: 90%;
+            height: 90%;
         }
 
-        #mc-projects h2 {
-            font-size: 2vw;
-            margin-bottom: 1vw;
-        }
-
-        #mc-projects ul {
-            list-style: none;
-            padding: 0;
+        #github-repo h3 {
             font-size: 1.5vw;
-        }
-
-        #mc-projects ul li {
-            margin: 1vw 0;
-        }
-
-        #mc-projects a {
-            text-decoration: none;
+            margin-bottom: 1vw;
+            text-transform: uppercase;
             color: #58a6ff;
-            font-weight: bold;
         }
 
-        #mc-projects a:hover {
-            text-decoration: underline;
+        #github-repo h2 {
+            font-size: 1.8vw;
+            margin-bottom: 0.5vw;
+            color: #e1e1e1;
         }
 
-        .back-btn {
-            margin-top: 2vw;
-            background: #ff4757;
-            color: white;
-            padding: 0.8vw 1.5vw;
-            border: none;
+        #github-repo a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            background: #58a6ff;
+            padding: 0.5vw 1vw;
             border-radius: 0.5vw;
-            font-size: 1.2vw;
-            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1vw;
             transition: background 0.3s ease, transform 0.3s ease;
         }
 
-        .back-btn:hover {
-            background: #ff6b81;
+        #github-repo a:hover {
+            background: #1f6feb;
             transform: scale(1.05);
         }
 
@@ -166,6 +130,20 @@
         .social-links img:hover {
             transform: scale(1.1);
         }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
+                gap: 5vw;
+            }
+
+            .social-links img {
+                width: 5vw;
+                height: 5vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -173,7 +151,7 @@
     <div class="title">THEBESTHARRISON</div>
 
     <!-- Grid Placeholders -->
-    <div class="grid-container" id="grid-container">
+    <div class="grid-container">
         <!-- Top-Left Square with Embedded YouTube Video -->
         <div class="grid-item">
             <iframe 
@@ -190,41 +168,25 @@
             <p>Please wait while we fetch your latest repository.</p>
         </div>
 
-        <!-- Bottom-Left Square -->
+        <!-- Bottom-Left and Bottom-Right Squares -->
         <div class="grid-item"></div>
-
-        <!-- Bottom-Right Square -->
-        <div class="grid-item">
-            <h3>MC Projects</h3>
-            <button class="mc-btn" onclick="expandGrid()">View All</button>
-        </div>
-    </div>
-
-    <!-- Minecraft Projects Expanded View -->
-    <div id="mc-projects">
-        <h2>My Minecraft Projects</h2>
-        <ul>
-            <li><a href="https://discord.gg/mcevent1" target="_blank">Event Server 1</a></li>
-            <li><a href="https://discord.gg/mcevent2" target="_blank">Event Server 2</a></li>
-            <li><a href="https://discord.gg/mcevent3" target="_blank">Event Server 3</a></li>
-        </ul>
-        <button class="back-btn" onclick="shrinkGrid()">Back</button>
+        <div class="grid-item"></div>
     </div>
 
     <!-- Social Links -->
     <div class="social-links">
         <a href="http://www.twitch.tv/thebestharrison1221" target="_blank">
-            <img src="twitch.png" alt="Twitch Logo">
+            <img src="twitch.png" alt="Twitch Logo" loading="lazy">
         </a>
         <a href="http://www.youtube.com/@thebestharrison1221" target="_blank">
-            <img src="youtube.png" alt="YouTube Logo">
+            <img src="youtube.png" alt="YouTube Logo" loading="lazy">
         </a>
         <a href="https://github.com/Thebestharrison1221" target="_blank">
-            <img src="github.png" alt="GitHub Logo">
+            <img src="github.png" alt="GitHub Logo" loading="lazy">
         </a>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript to Fetch Latest GitHub Repo -->
     <script>
         async function fetchLatestRepo() {
             const username = "Thebestharrison1221"; // Replace with your GitHub username
@@ -247,24 +209,6 @@
                 document.getElementById('github-repo').innerHTML = "<p>Error loading repository.</p>";
                 console.error("Error fetching GitHub data:", error);
             }
-        }
-
-        function expandGrid() {
-            const gridContainer = document.getElementById('grid-container');
-            const mcProjects = document.getElementById('mc-projects');
-            gridContainer.classList.add('expanded');
-            setTimeout(() => {
-                gridContainer.style.display = 'none';
-                mcProjects.style.display = 'block';
-            }, 800); // Matches animation duration
-        }
-
-        function shrinkGrid() {
-            const gridContainer = document.getElementById('grid-container');
-            const mcProjects = document.getElementById('mc-projects');
-            mcProjects.style.display = 'none';
-            gridContainer.style.display = 'grid';
-            gridContainer.classList.remove('expanded');
         }
 
         fetchLatestRepo();
